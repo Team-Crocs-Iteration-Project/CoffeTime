@@ -70,7 +70,7 @@ function App() {
   return (
     <div id="App">
       <div id="header-container">
-        <div className="empty-div"></div>
+        <div className="empty-div">sup</div>
         <div id="title-container">
           <img id="mole-logo" src={pic}></img>
           <h1 id="title">COFFEE TIME</h1>
