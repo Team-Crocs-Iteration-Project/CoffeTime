@@ -14,8 +14,9 @@ function EventsList(props) {
       for (const elem of message) {
         if(!elem.eventTime) elem.eventTime = 'TBD'
         if (colorCounter > 3) colorCounter = 0;
-        res.push(<Event host={elem.host} details={elem.details.title} colorCounter={colorCounter} eventTime={elem.eventTime } key={nanoid()} />);
-        setEvents([...events, ...res]);
+        res.push(<Event host={elem.host} details={elem.details.title} id={elem._id} attendees={elem.details.attendees} colorCounter={colorCounter} eventTime={elem.eventTime } key={nanoid()} />);
+        setEvents([...res]);
+        // console.log(res)
         colorCounter++;
       }
     }

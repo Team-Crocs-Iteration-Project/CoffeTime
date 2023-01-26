@@ -57,9 +57,11 @@ module.exports = function (io) {
     socket.on('newEvent', (newEvent) => {
       console.log('incoming event is: ', newEvent);
       //create new event in database
-      Event.create(newEvent).then((data) => {
-        console.log('new Event is: ', newEvent);
-        io.emit('loadEvents', [newEvent]);
+      Event.create(newEvent).then(() => {
+        Event.find({}).then((data) => {
+          console.log('res data is: ', data);
+          io.emit('loadEvents', data);
+      });
       });
     });
     socket.on('getUser', () => {
