@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Event from "./Event";
-
+import { nanoid } from "nanoid";
 
 function EventsList(props) {
 
@@ -14,7 +14,7 @@ function EventsList(props) {
       for (const elem of message) {
         if(!elem.eventTime) elem.eventTime = 'TBD'
         if (colorCounter > 3) colorCounter = 0;
-        res.push(<Event host={elem.host} details={elem.details.title} colorCounter={colorCounter} eventTime={elem.eventTime } key={elem.details.title} />);
+        res.push(<Event host={elem.host} details={elem.details.title} colorCounter={colorCounter} eventTime={elem.eventTime } key={nanoid()} />);
         setEvents([...events, ...res]);
         colorCounter++;
       }
