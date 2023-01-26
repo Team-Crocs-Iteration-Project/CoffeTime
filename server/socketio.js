@@ -24,12 +24,13 @@ module.exports = function (io) {
       } else {
         socket.auth = true;
         socket.user = user;
+        // socket user
       }
     });
     setTimeout(() => {
       // If the authentication failed, disconnect socket
       if (!socket.auth) {
-        console.log('CTO Unauthorized: Disconnecting socket ', socket.id);
+        console.log('Unauthorized: Disconnecting socket ', socket.id);
         return socket.disconnect('unauthorized');
       }
       // If authentication succeeded, restore socket to the namespace
@@ -42,6 +43,7 @@ module.exports = function (io) {
       });
       return socket.emit('authorized');
     }, 1000);
+    // try .5
     socket.on('initialLoad', () => {
       // When connected, fetch the events
       // and send them to the frontend
@@ -64,7 +66,7 @@ module.exports = function (io) {
       socket.emit('user', {
         id: socket.user._id,
         username: socket.user.username,
-        profileImage: socket.user.profileImage,
+        // profileImage: socket.user.profileImage,
       });
     });
     socket.on('disconnect', () => {

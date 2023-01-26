@@ -6,8 +6,11 @@ import pic from '../../public/logo.png';
 const socket = io();
 //this socket is the socket.io connection to the backend. Look into the docs for how it works, but it is basically Node's event listener and after it opens a connection
 //you listen for events with .on and send events with .emit, where the first arg is the type of event, and the second arg is the message to send (applies for front and backend)
+  // this may no longer be how we're handling the socket, must investigate
+    // appears confirmed depricated. socket established after auth
 
 //create App that passes down the instance of socket to its children. This stops us from opening multiple connections with the server.
+  // this may no longer be true, must investigate
 function App() {
   // Here we initialize state
   // These pieces are for the socket connection
@@ -19,7 +22,7 @@ function App() {
   // This piece hold the user profile after authentication
   const [user, setUser] = useState(null);
 
-  // These are helper functions for login and logout. Could be moved to another file and imported for tidyness
+  // These are helper functions for login and logout. 
   const handleLogin = () => {
     const connectSocket = io('http://127.0.0.1:3000');
     setSocket(connectSocket);

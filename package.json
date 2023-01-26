@@ -1,7 +1,7 @@
 {
-  "name": "coffetime",
+  "name": "coffeetime",
   "version": "2.0.0",
-  "description": "App for coffe time and connecting",
+  "description": "App for coffee time and connecting",
   "main": "./server/server.js",
   "scripts": {
     "test": "jest --verbose --detectOpenHandles",
