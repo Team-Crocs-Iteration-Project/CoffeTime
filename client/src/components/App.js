@@ -77,29 +77,30 @@ function App() {
       {user ? (
         <div className="container">
           <div className="wrapper">
-            <CreateForm socket={socket} username={username} />
+            <CreateForm socket={socket} />
             <EventsList socket={socket} />
           </div>
         </div>
-      ) : ( /* Test Code */ 
-      <div className="login__container">
-      <h1>Login</h1>
-      <input
-        type="text"
-        value={username}
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="button" onClick={handleLogin}>
-        Login
-      </button>
-    </div>
+      ) : (
+        /* Test Code */
+        <div className="login__container">
+          <h1>Login</h1>
+          <input
+            type="text"
+            value={username}
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="button" onClick={handleLogin}>
+            Login
+          </button>
+        </div>
       )}
       {/* If there is a socket error in state, render it */}
       {socketError ? <p>{socketError}</p> : null}
