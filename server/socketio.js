@@ -19,10 +19,8 @@ module.exports = function (io) {
       const { username, password } = auth;
       // Find user
       const user = await User.findOne({ username }).exec();
-      if (user === null) {
-        socket.emit('error', { message: 'No user found' });
-      } else if (user.password !== password) {
-        socket.emit('error', { message: 'Wrong password' });
+      if (user === null || user.password !== password) {
+        socket.emit("error", { message: "Username or password incorrect" });
       } else {
         socket.auth = true;
         socket.user = user;
