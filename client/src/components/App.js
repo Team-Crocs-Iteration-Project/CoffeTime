@@ -73,8 +73,17 @@ function App() {
   return (
     <div id="App">
       <div id="header-container">
-        <img id="mole-logo" src={pic}></img>
-        <h1 id="title">COFFEE TIME</h1>
+        <div className="empty-div">sup</div>
+        <div id="title-container">
+          <img id="mole-logo" src={pic}></img>
+          <h1 id="title">COFFEE TIME</h1>
+        </div>
+        {user ? (
+          <div id="logout-container">
+            <h3 id="username-header">{username}</h3>
+            <button type="button" id="logout-button" onClick={handleLogout}>Logout 👋</button>
+          </div>
+        ) : (<div className="empty-div"></div>)}
       </div>
       {/* If there is a user in state, render our main page, otherwise render login page */}
       {user ? (
@@ -84,23 +93,19 @@ function App() {
             <EventsList socket={socket} />
           </div>
         </div>
-      ) : (
-        /* Test Code */
-        <div className="login__container">
-          <h1>Login</h1>
-          <input
-            type="text"
-            value={username}
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
+      ) : ( 
+        <div id="login-container">
+          <h2>Login ☕️</h2>
+          <input id="username" 
+                  placeholder="username" 
+                  onChange={(e) => setUsername(e.target.value)}
           />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+          <input type="password" 
+                  id="password" 
+                  placeholder="password" 
+                  onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="button" onClick={handleLogin}>
+          <button id="login-button" onClick={handleLogin}>
             Login
           </button>
         </div>
