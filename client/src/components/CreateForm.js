@@ -28,11 +28,9 @@ function CreateForm(props) {
         if (host && event){handleSubmit(e)}}}>
         <label id='host-input-and-label'> Host
           <input id='host-input' type='text' onChange={(e) => useHost(e.target.value)} value={host} />
-          {hostError ? <p>{hostError}</p> : null}
         </label> 
         <label id='event-input-and-label'>Event
           <input id='event-input' type='text' onChange={(e) => {useEvent(e.target.value)}} value={event} />
-          {eventError ? <p>{eventError}</p> : null}
         </label>
         <div className="submitting">
           <TimePicker onChange={useTime} value={time} disableClock={true} />
