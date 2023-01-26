@@ -57,11 +57,12 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-#loginContainer {
+#login-container {
   display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 90px;
   border: 1px solid #ECECEC;
   border-radius: 10px;
   box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.04);
@@ -71,7 +72,17 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-#loginContainer h2 {
+.empty-div {
+  flex-grow: 1;
+}
+
+#title-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+#login-container h2 {
   font-size: 34px;
   font-weight: 600;
   margin-bottom: 24px;
@@ -86,17 +97,13 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#mole-logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 30px;
+}
 #header-container {
   display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-#mole-logo {
-  height: 80px;
-  width: 80px;
-}
-#header-container {
   background-color: black;
   color: white;
   text-align: center;
@@ -105,6 +112,14 @@ p, h1, h2, h3, h4, h5, h6 {
   height: 90px;
   line-height: 70px;
   font-weight: 600;
+  justify-content: space-between;
+}
+
+#logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
 }
 
 button {
@@ -117,6 +132,22 @@ color: #222;
  border: none;
  border-radius: 4px;
  box-shadow: none;
+}
+
+#username-header {
+  font-weight: 300;
+  padding: 20px;
+}
+
+#logout-button {
+  background-color: #EDEDED;
+  color: #535353;
+  height: 48px;
+  width: auto;
+  padding-inline: 10px;
+  margin-right: 20px;
+  line-height: normal;
+  font-size: 16px;
 }
 
 /*targets the title of the create event div*/
@@ -145,7 +176,7 @@ label input {
   padding-inline: 16px;
 }
 
-#loginContainer input {
+#login-container input {
   display: block;
   border: none;
   background-color: #EDEDED;
