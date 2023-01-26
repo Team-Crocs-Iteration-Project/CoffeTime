@@ -77,7 +77,7 @@ function App() {
       {user ? (
         <div className="container">
           <div className="wrapper">
-            <CreateForm socket={socket} />
+            <CreateForm socket={socket} username={username} />
             <EventsList socket={socket} />
           </div>
         </div>
